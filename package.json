@@ -1,10 +1,13 @@
 {
   "name": "@zachstowell/react-twitter-auth",
-  "version": "0.0.11",
-  "description": "A Twitter login component, forked from https://github.com/GenFirst/react-twitter-login/issues",
+  "version": "0.0.12",
+  "description":
+    "A Twitter login component, forked from https://github.com/GenFirst/react-twitter-login/issues",
   "scripts": {
-    "build:develop": "cross-env NODE_ENV=development webpack src/index.js lib/react-twitter-auth-component.js",
-    "build:production": "cross-env NODE_ENV=production webpack src/index.js lib/react-twitter-auth-component.min.js",
+    "build:develop":
+      "cross-env NODE_ENV=development webpack src/index.js lib/react-twitter-auth-component.js",
+    "build:production":
+      "cross-env NODE_ENV=production webpack src/index.js lib/react-twitter-auth-component.min.js",
     "lint": "eslint src/ --fix",
     "clean": "rm -rf node_modules && rm -rf bin",
     "test": "jest --config jest.config.json --coverage",
@@ -15,14 +18,7 @@
     "type": "git",
     "url": "git+https://github.com/ZachStowell/react-twitter-auth.git"
   },
-  "keywords": [
-    "React",
-    "Twitter",
-    "Login",
-    "Auth",
-    "oauth",
-    "component"
-  ],
+  "keywords": ["React", "Twitter", "Login", "Auth", "oauth", "component"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ZachStowell/react-twitter-login/issues"
@@ -58,6 +54,7 @@
     "webpack": "3.5.5"
   },
   "dependencies": {
+    "prop-types": "^15.6.1",
     "react-icons": "^2.2.5",
     "url-search-params-polyfill": "^2.0.0",
     "whatwg-fetch": "2.0.3"
