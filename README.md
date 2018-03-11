@@ -2,11 +2,11 @@
 
 # React Twitter Authentication Component
 
-> A React Twitter oAUth Sign-in / Log-in Component for React
+> A React Twitter oAUth Sign-in / Log-in Component for React, forked from https://github.com/GenFirst/react-twitter-login/issues
 
 ## Installation
 
-`npm install react-twitter-auth-force-login`
+`npm install @zachstowell/react-twitter-auth`
 
 ## Usage
 
@@ -52,7 +52,7 @@ Custom content that overrides default content:
 
 # Examples
 
-Full example can be found in [example](https://github.com/GenFirst/react-twitter-login/tree/master/example) folder.
+Full example can be found in [example](https://github.com/ZachStowell/react-twitter-login/tree/master/example) folder.
 
 You can find tutorial that explains in details how to implement Twitter authentication with RESTful backend [here](https://medium.com/@robince885/how-to-do-twitter-authentication-with-react-and-restful-api-e525f30c62bb).
 
