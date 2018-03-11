@@ -1,6 +1,6 @@
 {
   "name": "@zachstowell/react-twitter-auth",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description":
     "A Twitter login component, forked from https://github.com/GenFirst/react-twitter-login/issues",
   "scripts": {
@@ -54,7 +54,6 @@
     "webpack": "3.5.5"
   },
   "dependencies": {
-    "prop-types": "^15.6.1",
     "react-icons": "^2.2.5",
     "url-search-params-polyfill": "^2.0.0",
     "whatwg-fetch": "2.0.3"

@@ -22,7 +22,7 @@ class TwitterLogin extends Component {
   }
 
   getRequestToken() {
-    var popup = this.openPopup();
+    const popup = this.openPopup();
 
     return window
       .fetch(this.props.requestTokenUrl, {
@@ -30,13 +30,11 @@ class TwitterLogin extends Component {
         credentials: this.props.credentials,
         headers: this.getHeaders()
       })
-      .then(response => {
-        return response.json();
-      })
+      .then(response => response.json())
       .then(data => {
-        popup.location = `https://api.twitter.com/oauth/authenticate?force_login=${
-          this.props.forceLogin
-        }&oauth_token=${data.oauth_token}`;
+        popup.location = `https://api.twitter.com/oauth/authenticate?force_login=true&oauth_token=${
+          data.oauth_token
+        }`;
         this.polling(popup);
       })
       .catch(error => {
@@ -54,14 +52,7 @@ class TwitterLogin extends Component {
     return window.open(
       '',
       '',
-      'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' +
-        w +
-        ', height=' +
-        h +
-        ', top=' +
-        top +
-        ', left=' +
-        left
+      `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`
     );
   }
 
@@ -90,16 +81,15 @@ class TwitterLogin extends Component {
 
             closeDialog();
             return this.getOauthToken(oauthVerifier, oauthToken);
-          } else {
-            closeDialog();
-            return this.props.onFailure(
-              new Error(
-                'OAuth redirect has occurred but no query or hash parameters were found. ' +
-                  'They were either not set during the redirect, or were removed—typically by a ' +
-                  'routing library—before Twitter react component could read it.'
-              )
-            );
           }
+          closeDialog();
+          return this.props.onFailure(
+            new Error(
+              'OAuth redirect has occurred but no query or hash parameters were found. ' +
+                'They were either not set during the redirect, or were removed—typically by a ' +
+                'routing library—before Twitter react component could read it.'
+            )
+          );
         }
       } catch (error) {
         // Ignore DOMException: Blocked a frame with origin from accessing a cross-origin frame.
@@ -123,9 +113,7 @@ class TwitterLogin extends Component {
       .then(response => {
         this.props.onSuccess(response);
       })
-      .catch(error => {
-        return this.props.onFailure(error);
-      });
+      .catch(error => this.props.onFailure(error));
   }
 
   getDefaultButtonContent() {
@@ -169,8 +157,7 @@ TwitterLogin.propTypes = {
   dialogHeight: PropTypes.number,
   showIcon: PropTypes.bool,
   credentials: PropTypes.oneOf(['omit', 'same-origin', 'include']),
-  customHeaders: PropTypes.object,
-  forceLogin: Proptypes.boolean
+  customHeaders: PropTypes.object
 };
 
 TwitterLogin.defaultProps = {
